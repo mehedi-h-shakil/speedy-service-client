@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import Review from "../../Review/Review";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
@@ -17,6 +18,9 @@ const ServiceDetails = () => {
           Price: <span className="text-orange-500">${price}</span>
         </h2>
         <p className="mt-5 text-xl">Rating: {rating}</p>
+      </div>
+      <div>
+        <Review></Review>
       </div>
     </div>
   );
