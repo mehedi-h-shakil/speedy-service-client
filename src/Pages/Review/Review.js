@@ -24,6 +24,8 @@ const Review = ({ service, reload, setReload }) => {
       author: user?.displayName,
       img: user?.photoURL,
       text: reviewText,
+      email: user?.email,
+      service: service?.title,
     };
 
     fetch("http://localhost:5000/reviews", {

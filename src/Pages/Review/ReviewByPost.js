@@ -3,17 +3,17 @@ import ReviewComment from "./ReviewComment";
 
 const ReviewByPost = ({ service, reload }) => {
   const [comment, setComment] = useState([]);
-  console.log(comment);
+  // console.log(comment);
 
   const id = service?._id;
 
   useEffect(() => {
-    const url = `http://localhost:5000/reviewsByPost/${id}`;
+    // const url = `http://localhost:5000/reviewsByPost/${id}`;
     // console.log(url);
     fetch(`http://localhost:5000/reviewsByPost/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setComment(data);
       });
   }, [id, reload]);
