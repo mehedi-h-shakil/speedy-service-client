@@ -5,7 +5,7 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Signup = () => {
-  const { signup } = useContext(AuthContext);
+  const { signup, updateUserProfile } = useContext(AuthContext);
 
   const [error, setError] = useState();
 
@@ -14,6 +14,7 @@ const Signup = () => {
 
     const form = event.target;
     const name = form.name.value;
+    const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
     setError();
@@ -22,12 +23,22 @@ const Signup = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        handleUpdateUser(name, photoURL);
       })
       .catch((err) => {
         console.error(err);
         setError(err);
       });
+
+    const handleUpdateUser = (name, photoURL) => {
+      const profile = {
+        displayName: name,
+        photoURL: photoURL,
+      };
+      updateUserProfile(profile);
+    };
   };
+
   return (
     <div className="hero min-h-screen">
       <div className="hero-content sm:flex-col lg:flex-row">
@@ -45,6 +56,17 @@ const Signup = () => {
                 type="text"
                 name="name"
                 placeholder="Name"
+                className="input input-bordered"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Photo URL</span>
+              </label>
+              <input
+                type="text"
+                name="photoURL"
+                placeholder="Photo URL"
                 className="input input-bordered"
               />
             </div>

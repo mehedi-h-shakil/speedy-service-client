@@ -20,7 +20,7 @@ const Banner = () => {
             feel free you share your thought about our services.
           </p>
           <Link to="/services">
-            <button className="btn">Book a service</button>
+            <button className="btn">Check a service</button>
           </Link>
         </div>
       </div>

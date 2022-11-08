@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Review from "../../Review/Review";
+import ReviewByPost from "../../Review/ReviewByPost";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
+  const [reload, setReload] = useState(false);
   const { title, img, description, price, rating } = service;
   return (
     <div className="w-9/12 mx-auto p-10">
@@ -20,7 +22,12 @@ const ServiceDetails = () => {
         <p className="mt-5 text-xl">Rating: {rating}</p>
       </div>
       <div>
-        <Review></Review>
+        <ReviewByPost service={service} reload={reload}></ReviewByPost>
+        <Review
+          service={service}
+          reload={reload}
+          setReload={setReload}
+        ></Review>
       </div>
     </div>
   );
