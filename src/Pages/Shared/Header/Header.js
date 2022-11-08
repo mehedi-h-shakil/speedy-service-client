@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
+
+  const handleSignout = () => {
+    logout()
+      .then(() => {})
+      .catch(() => {});
+  };
   const menuItems = (
     <>
       <li>
@@ -11,6 +19,25 @@ const Header = () => {
       <li>
         <Link to="/services">Services</Link>
       </li>
+      {user?.uid ? (
+        <>
+          <li>
+            <Link>My Reviews</Link>
+          </li>
+          <li>
+            <Link>Add Reviews</Link>
+          </li>
+          <li>
+            <button onClick={handleSignout}>Sign Out</button>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link to="/login">Sign In</Link>
+          </li>
+        </>
+      )}
     </>
   );
   return (
