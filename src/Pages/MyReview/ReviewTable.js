@@ -1,7 +1,8 @@
 import React from "react";
 
-const ReviewTable = ({ review }) => {
-  const { service, text } = review;
+const ReviewTable = ({ review, handleDelete }) => {
+  const { service, text, _id } = review;
+  //   console.log(review);
   return (
     <div className="overflow-x-auto w-9/12 mx-auto py-5">
       <table className="table w-full">
@@ -18,7 +19,14 @@ const ReviewTable = ({ review }) => {
             <td>{text}</td>
             <td className="flex gap-5">
               <button className="btn">Edit</button>
-              <button className="btn">Delete</button>
+              <button
+                onClick={() => handleDelete(_id)}
+                className="modal-button btn"
+                type="button"
+                data-modal-toggle="defaultModal"
+              >
+                Delete
+              </button>
             </td>
           </tr>
         </tbody>

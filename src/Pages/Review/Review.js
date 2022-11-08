@@ -7,9 +7,6 @@ const Review = ({ service, reload, setReload }) => {
 
   // console.log(service);
 
-  const author = user?.displayName;
-  const img = user?.photoURL;
-  const id = service?._id;
   // console.log(id);
 
   // console.log(author, img);
