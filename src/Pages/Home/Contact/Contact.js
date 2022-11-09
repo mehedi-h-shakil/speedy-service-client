@@ -32,7 +32,7 @@ const Contact = () => {
               placeholder="Number"
             />
           </div>
-          <div className="flex justify-center mt-5">
+          <div className="flex justify-center mt-5 py-5">
             <button type="submit" className="btn">
               Contact
             </button>
