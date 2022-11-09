@@ -7,7 +7,7 @@ const ReviewTable = ({ review, handleDelete, handleUpdate }) => {
     event.preventDefault();
     const form = event.target;
     const text = form.text.value;
-    console.log(text);
+    // console.log(text);
     handleUpdate(_id, text);
   };
   return (

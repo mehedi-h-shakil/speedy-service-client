@@ -6,16 +6,26 @@ import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
 
 const MyReview = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
-  const [update, setUpdate] = useState(false);
+  const [update, setUpdates] = useState(false);
+  // const [update, setUpdate] = useState(false);
+  console.log(reviews);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("speedy-service")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
-        setReviews(data);
-        setUpdate(!update);
+        console.log(data);
+        if (data.status !== 0) {
+          setReviews(data);
+        } else if (data.status === 401 || data.status === 403) {
+          logout();
+        }
       });
   }, [user?.email, update]);
 
@@ -48,7 +58,7 @@ const MyReview = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setReviews(data);
+        setUpdates(!update);
       });
   };
   return (

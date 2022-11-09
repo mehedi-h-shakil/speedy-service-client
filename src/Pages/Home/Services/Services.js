@@ -9,7 +9,7 @@ const Services = () => {
     fetch("http://localhost:5000/services-limited")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setLimitedServices(data);
       });
   }, []);

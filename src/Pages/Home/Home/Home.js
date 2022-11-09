@@ -2,6 +2,8 @@ import React from "react";
 import Banner from "../Banner/Banner";
 import Services from "../Services/Services";
 import { Helmet } from "react-helmet";
+import AppSection from "../AppSection/AppSection";
+import Contact from "../Contact/Contact";
 
 const Home = () => {
   return (
@@ -12,6 +14,8 @@ const Home = () => {
       </Helmet>
       <Banner></Banner>
       <Services></Services>
+      <AppSection></AppSection>
+      <Contact></Contact>
     </div>
   );
 };

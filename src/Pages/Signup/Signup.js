@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import loginImg from "../../assets/login.png";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
@@ -39,7 +39,21 @@ const Signup = () => {
       updateUserProfile(profile);
     };
   };
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center p-40">
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-orange-500"></div>
+      </div>
+    );
+  }
   return (
     <div className="hero min-h-screen">
       <Helmet>

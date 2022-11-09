@@ -3,6 +3,8 @@ import { toast } from "react-hot-toast";
 import { Helmet } from "react-helmet";
 
 const AddService = () => {
+  const mydate = Date();
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -19,6 +21,7 @@ const AddService = () => {
       description: description,
       price: price,
       rating: rating,
+      time: mydate,
     };
 
     fetch("http://localhost:5000/services", {
