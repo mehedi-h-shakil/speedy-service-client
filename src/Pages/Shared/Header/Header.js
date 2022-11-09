@@ -30,6 +30,27 @@ const Header = () => {
           <li>
             <button onClick={handleSignout}>Sign Out</button>
           </li>
+          <li>
+            <div className="tooltip" data-tip={user?.displayName}>
+              <Link>
+                <div className="flex justify-center">
+                  {user?.photoURL ? (
+                    <img
+                      className="w-7 rounded-full"
+                      src={user?.photoURL}
+                      alt=""
+                    />
+                  ) : (
+                    <img
+                      className="w-7 rounded-full"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png"
+                      alt=""
+                    />
+                  )}
+                </div>
+              </Link>
+            </div>
+          </li>
         </>
       ) : (
         <>
@@ -41,7 +62,7 @@ const Header = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 w-9/12 mx-auto">
+    <div className="navbar bg-base-100 w-9/12 mx-auto py-10">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -72,7 +93,7 @@ const Header = () => {
           <span className="text-orange-500">Speedy</span> Service
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden lg:flex navbar-end">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
     </div>

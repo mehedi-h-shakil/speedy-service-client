@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import ReviewTable from "./ReviewTable";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const MyReview = () => {
   const { user } = useContext(AuthContext);
@@ -31,8 +32,27 @@ const MyReview = () => {
         });
     }
   };
+
+  const handleUpdate = (id, text) => {
+    fetch(`http://localhost:5000/reviews/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ text: text }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setReviews(data);
+      });
+  };
   return (
     <div className="w-9/12 mx-auto">
+      <Helmet>
+        <title>My Review</title>
+        <meta name="description" content="My Review component" />
+      </Helmet>
       <div>
         {reviews?.length === 0 ? (
           <div className="py-10">
@@ -51,6 +71,7 @@ const MyReview = () => {
                 key={review._id}
                 review={review}
                 handleDelete={handleDelete}
+                handleUpdate={handleUpdate}
               ></ReviewTable>
             ))}
           </div>

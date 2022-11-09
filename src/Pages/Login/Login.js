@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/login.png";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
@@ -33,6 +34,10 @@ const Login = () => {
   };
   return (
     <div className="hero min-h-screen">
+      <Helmet>
+        <title>Login</title>
+        <meta name="description" content="Login component" />
+      </Helmet>
       <div className="hero-content sm:flex-col lg:flex-row">
         <div className="text-center lg:text-left">
           <img src={loginImg} alt="" />

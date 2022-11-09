@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import loginImg from "../../assets/login.png";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet";
 
 const Signup = () => {
   const { signup, updateUserProfile } = useContext(AuthContext);
@@ -41,6 +42,10 @@ const Signup = () => {
 
   return (
     <div className="hero min-h-screen">
+      <Helmet>
+        <title>Sign Up</title>
+        <meta name="description" content="Signup component" />
+      </Helmet>
       <div className="hero-content sm:flex-col lg:flex-row">
         <div className="text-center lg:text-left">
           <img src={loginImg} alt="" />

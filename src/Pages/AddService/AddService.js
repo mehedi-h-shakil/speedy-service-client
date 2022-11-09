@@ -1,5 +1,6 @@
 import React from "react";
 import { toast } from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const AddService = () => {
   const handleSubmit = (event) => {
@@ -39,6 +40,10 @@ const AddService = () => {
   };
   return (
     <div className="w-9/12 mx-auto">
+      <Helmet>
+        <title>Add Service</title>
+        <meta name="description" content="AddService component" />
+      </Helmet>
       <h2 className="text-4xl text-center py-5">Add service</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-control">
