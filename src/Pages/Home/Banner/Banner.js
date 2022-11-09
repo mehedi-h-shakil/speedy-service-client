@@ -11,7 +11,7 @@ const Banner = () => {
           className="w-full lg:h-96 sm:h-64 rounded-lg shadow-2xl"
           alt=""
         />
-        <div>
+        <div className="">
           <h1 className="text-5xl font-bold">Speedy Service Review</h1>
           <p className="py-6">
             Here you will find different kind of services you want and you will

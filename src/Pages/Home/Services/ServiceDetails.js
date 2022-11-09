@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Review from "../../Review/Review";
 import ReviewByPost from "../../Review/ReviewByPost";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
@@ -10,7 +12,12 @@ const ServiceDetails = () => {
   return (
     <div className="w-9/12 mx-auto p-10">
       <div className="flex justify-center">
-        <img src={img} className="w-full h-[700px]" alt="" />
+        {/* <img src={img} className="w-full h-[700px]" alt="" /> */}
+        <PhotoProvider>
+          <PhotoView src={img}>
+            <img src={img} className="w-full lg:h-[700px] sm:h-96" alt="car!" />
+          </PhotoView>
+        </PhotoProvider>
       </div>
 
       <h2 className="text-4xl mt-5 font-bold">{title}</h2>

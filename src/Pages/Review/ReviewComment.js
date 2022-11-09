@@ -4,7 +4,7 @@ import user from "../../assets/user.png";
 const ReviewComment = ({ post }) => {
   const { author, img, text } = post;
   return (
-    <div className="border-solid border-2 grid grid-cols-4 my-5">
+    <div className="border-solid border-2 grid lg:grid-cols-4 sm:grid-cols-1 my-5">
       <div className="flex justify-center items-center">
         <img src={img ? img : user} className="w-16 rounded-full mr-2" alt="" />
         <p>{author}</p>

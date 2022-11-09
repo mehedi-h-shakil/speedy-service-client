@@ -12,7 +12,7 @@ const AllServices = () => {
         <title>Services</title>
         <meta name="description" content="Services component" />
       </Helmet>
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-7">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-4">
         {allservices.length === 0 ? (
           <div className="flex justify-center items-center p-40">
             <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-orange-500"></div>

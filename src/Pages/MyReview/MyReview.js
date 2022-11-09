@@ -8,12 +8,16 @@ import { Helmet } from "react-helmet";
 const MyReview = () => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
+  const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:5000/reviews?email=${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setReviews(data));
-  }, [user?.email]);
+      .then((data) => {
+        setReviews(data);
+        setUpdate(!update);
+      });
+  }, [user?.email, update]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
@@ -56,7 +60,7 @@ const MyReview = () => {
       <div>
         {reviews?.length === 0 ? (
           <div className="py-10">
-            <h2 className="text-4xl text-center ">User has no review.</h2>
+            <h2 className="text-4xl text-center ">No review were added.</h2>
             <p className="text-center text-xl mt-3">
               Please take a loot at our{" "}
               <Link className="underline text-orange-500" to="/services">
