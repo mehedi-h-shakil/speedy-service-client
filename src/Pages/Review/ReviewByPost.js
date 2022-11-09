@@ -8,9 +8,9 @@ const ReviewByPost = ({ service, reload }) => {
   const id = service?._id;
 
   useEffect(() => {
-    // const url = `http://localhost:5000/reviewsByPost/${id}`;
+    // const url = `https://speedy-service-review-server.vercel.app/reviewsByPost/${id}`;
     // console.log(url);
-    fetch(`http://localhost:5000/reviewsByPost/${id}`)
+    fetch(`https://speedy-service-review-server.vercel.app/reviewsByPost/${id}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

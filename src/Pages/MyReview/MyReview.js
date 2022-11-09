@@ -10,14 +10,17 @@ const MyReview = () => {
   const [reviews, setReviews] = useState([]);
   const [update, setUpdates] = useState(false);
   // const [update, setUpdate] = useState(false);
-  console.log(reviews);
+  // console.log(reviews);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("speedy-service")}`,
-      },
-    })
+    fetch(
+      `https://speedy-service-review-server.vercel.app/reviews?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("speedy-service")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -33,7 +36,7 @@ const MyReview = () => {
     const proceed = window.confirm("Are you sure?");
 
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://speedy-service-review-server.vercel.app/reviews/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -48,7 +51,7 @@ const MyReview = () => {
   };
 
   const handleUpdate = (id, text) => {
-    fetch(`http://localhost:5000/reviews/${id}`, {
+    fetch(`https://speedy-service-review-server.vercel.app/reviews/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
