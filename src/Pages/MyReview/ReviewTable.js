@@ -12,34 +12,37 @@ const ReviewTable = ({ review, handleDelete, handleUpdate }) => {
   };
   return (
     <div className="overflow-x-auto w-9/12 mx-auto py-5">
-      <table className="table w-full">
-        <thead>
-          <tr>
-            <th>Service</th>
-            <th>Review</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="hover">
-            <td>{service}</td>
-            <td>{text}</td>
-            <td className="flex gap-5">
-              <label htmlFor="my-modal" className="btn">
-                Edit
-              </label>
-              <button
-                onClick={() => handleDelete(_id)}
-                className="modal-button btn"
-                type="button"
-                data-modal-toggle="defaultModal"
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="grid lg:grid-cols-8 sm:grid-cols-1  gap-5 shadow-md p-2">
+        <div className="col-span-3">
+          <p className="font-semibold">
+            <span className="lg:hidden sm:block font-semibold mr-2">
+              Service Name:
+            </span>
+            {service}
+          </p>
+        </div>
+        <div className="col-span-3">
+          <p>
+            <span className="lg:hidden sm:block font-semibold mr-2">
+              Review:
+            </span>
+            {text}
+          </p>
+        </div>
+        <div className="flex gap-3">
+          <label htmlFor="my-modal" className="btn">
+            Edit
+          </label>
+          <button
+            onClick={() => handleDelete(_id)}
+            className="modal-button btn"
+            type="button"
+            data-modal-toggle="defaultModal"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
       <div>
         <input type="checkbox" id="my-modal" className="modal-toggle" />
         <form onSubmit={handleSubmit} className="modal">
@@ -47,6 +50,7 @@ const ReviewTable = ({ review, handleDelete, handleUpdate }) => {
             <h3 className="font-bold text-lg">Edit your review.</h3>
             <p className="py-4">
               <input
+                defaultValue={text}
                 type="textarea"
                 name="text"
                 className="input input-bordered w-full h-40"

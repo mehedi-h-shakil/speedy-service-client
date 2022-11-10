@@ -35,6 +35,7 @@ const Review = ({ service, reload, setReload }) => {
       .then((res) => res.json())
       .then((data) => {
         setReload(!reload);
+        form.reset();
         // console.log(data);
       })
       .catch((err) => console.error(err));

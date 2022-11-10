@@ -64,6 +64,22 @@ const MyReview = () => {
         setUpdates(!update);
       });
   };
+
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center p-40">
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-orange-500"></div>
+      </div>
+    );
+  }
   return (
     <div className="w-9/12 mx-auto">
       <Helmet>
@@ -83,6 +99,19 @@ const MyReview = () => {
           </div>
         ) : (
           <div>
+            <div className="lg:block hidden">
+              <div className="grid lg:grid-cols-8 sm:grid-cols-1 gap-5 w-9/12 mx-auto py-5">
+                <div className="col-span-3">
+                  <p className="text-2xl font-semibold">Service Name</p>
+                </div>
+                <div className="col-span-3">
+                  <p className="text-2xl font-semibold">Review</p>
+                </div>
+                <div>
+                  <p className="text-2xl font-semibold">Edit</p>
+                </div>
+              </div>
+            </div>
             {reviews.map((review) => (
               <ReviewTable
                 key={review._id}
