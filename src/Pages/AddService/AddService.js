@@ -58,6 +58,7 @@ const AddService = () => {
             name="title"
             placeholder="Service Name"
             className="input input-bordered"
+            required
           />
         </div>
         <div className="form-control">
@@ -69,6 +70,7 @@ const AddService = () => {
             name="img"
             placeholder="Image URL"
             className="input input-bordered"
+            required
           />
         </div>
         <div className="form-control">
@@ -80,6 +82,7 @@ const AddService = () => {
             name="description"
             placeholder="Description"
             className="input input-bordered h-40"
+            required
           />
         </div>
         <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-4 ">
@@ -92,6 +95,7 @@ const AddService = () => {
               name="price"
               placeholder="Price"
               className="input input-bordered"
+              required
             />
           </div>
           <div className="form-control">
@@ -103,6 +107,7 @@ const AddService = () => {
               name="rating"
               placeholder="Rating"
               className="input input-bordered"
+              required
             />
           </div>
         </div>

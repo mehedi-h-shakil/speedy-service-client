@@ -86,6 +86,7 @@ const Login = () => {
                 name="email"
                 placeholder="email"
                 className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control">
@@ -97,6 +98,7 @@ const Login = () => {
                 name="password"
                 placeholder="password"
                 className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control mt-6">
@@ -105,7 +107,7 @@ const Login = () => {
               </button>
             </div>
           </form>
-          <p>{error}</p>
+          <p className="flex justify-center">{error}</p>
           <div className="flex justify-center ">
             <p className="font-semibold">Or Sign In With</p>
           </div>

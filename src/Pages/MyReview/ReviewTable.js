@@ -35,7 +35,7 @@ const ReviewTable = ({ review, handleDelete, handleUpdate }) => {
           </label>
           <button
             onClick={() => handleDelete(_id)}
-            className="modal-button btn"
+            className="modal-button btn bg-black"
             type="button"
             data-modal-toggle="defaultModal"
           >

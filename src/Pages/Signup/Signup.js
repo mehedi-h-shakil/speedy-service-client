@@ -76,6 +76,7 @@ const Signup = () => {
                 name="name"
                 placeholder="Name"
                 className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control">
@@ -98,6 +99,7 @@ const Signup = () => {
                 name="email"
                 placeholder="email"
                 className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control">
@@ -109,10 +111,11 @@ const Signup = () => {
                 name="password"
                 placeholder="password"
                 className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control mt-6">
-              <button type="submit" className="btn">
+              <button type="submit" className="btn bg-black">
                 Sign Up
               </button>
             </div>
