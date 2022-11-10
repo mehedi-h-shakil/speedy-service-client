@@ -13,17 +13,24 @@ Open [https://speedy-service-review-server.vercel.app/](https://speedy-service-r
 ## Features
 
 - Responsive website for mobile and desktop
-- minimalist design for user user experience
+- minimalist design for user experience
 - User Authentication
 - Clean UI
 - Project completed using React JS
+- Used Backend Server
+
+## Tools
+
+- React JS
+- Node JS
+- Express
+- Mongo DB
 
 ## Frameworks
 
 - Tailwind CSS
 - DaisyUI
 - MambaUI
-- Flowbite React
 
 ## React Packages
 
